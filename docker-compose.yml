@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+    backup_backend:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        container_name: googledrive_backup
+        environment: 
+            CREDENTIALS_PATH: ${CREDENTIALS_PATH}
+            TOKEN_PATH: ${TOKEN_PATH}
+            PORT: ${PORT}
+        ports:
+            - "127.0.0.1:6969:6969"
+        volumes:
+            - ./backup:/backup
+        restart: unless-stopped
+        command: yarn start
+
+volumes:
+    backup:
