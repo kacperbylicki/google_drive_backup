@@ -80,12 +80,12 @@ const uploadBackup = ( auth ) => {
     const date = moment().format('DD.MM.YYYY');
 
     const fileMetadata = {
-        name: `CDNOptima_${ date }`
+        name: `backup_file_${ date }`
     }
 
     const media = {
-        mimeType: 'application/x-7z-compressed',
-        body: fs.createReadStream(`./backup/CDNOptima_${ date }.7z`)
+        mimeType: 'application/x-7z-compressed', // set proper type of a file
+        body: fs.createReadStream(`./backup/backup_file_${ date }.7z`) 
     };
 
     const drive = google.drive({ version: 'v3', auth });
