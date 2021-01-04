@@ -14,7 +14,7 @@ const server = express();
 const PORT = process.env.PORT;
 
 // '30 01 * * 1' - every monday at 1:30AM
-cron.schedule('3- 01 * * 1', () => {
+cron.schedule('30 01 * * 1', () => {
     const date = moment().format('YYYY-MM-DDTHH:mm:ss');
     console.log(`Processing Google Drive backup at: ${ date } \n`);
 
